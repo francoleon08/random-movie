@@ -20,7 +20,7 @@ class Response(BaseModel):
     titulo: str
     imagenfondo: str
     resumen: str
-    precio: int
+    precio: str
     personas: str
 
 likes = {
@@ -35,7 +35,7 @@ def get_random_movie():
         titulo = pelicula["title"],
         imagenfondo = f"https://image.tmdb.org/t/p/w500{pelicula['backdrop_path']}",
         resumen = pelicula["overview"],
-        precio = get_precio()["precio"],
+        precio = get_precio(),
         personas = get_likes()["texto"]
     )
     
@@ -64,5 +64,5 @@ def get_likes():
 def get_precio():
     url = "https://preciotawd.onrender.com/"
     response = requests.get(url)
-    return response.json()
+    return str(response.json().get("precio")) + " " +  response.json().get("moneda")    
 
