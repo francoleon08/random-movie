@@ -23,10 +23,6 @@ class Response(BaseModel):
     precio: str
     personas: str
 
-likes = {
-    "texto": "Homero Simpson, Marge Simpson y Bart Simpson",
-}
-
 @app.get("/")
 def get_random_movie():
     pelicula = generate_random_movie()
@@ -36,7 +32,7 @@ def get_random_movie():
         imagenfondo = f"https://image.tmdb.org/t/p/w500{pelicula['backdrop_path']}",
         resumen = pelicula["overview"],
         precio = get_precio(),
-        personas = get_likes()["texto"]
+        personas = get_likes()
     )
     
     return response
@@ -59,7 +55,9 @@ def generate_random_movie():
     return pelicula
 
 def get_likes():
-    return likes
+    url = "https://likes-uimx.onrender.com/miapi/data"
+    response = requests.get(url)
+    return response.json().get("text")
 
 def get_precio():
     url = "https://preciotawd.onrender.com/"
