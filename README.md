@@ -6,6 +6,10 @@
 
 Este microservicio fue desarrollado como parte del curso **Tópicos Avanzados de Desarrollo Web** de la **Universidad Nacional del Sur**, con el objetivo de integrarse eficientemente en una arquitectura de microservicios. Gracias a esta integración, **DCICFLIX** permite a los usuarios acceder de manera ágil y sencilla a información sobre películas, mejorando la usabilidad y rendimiento de la plataforma.
 
+## Diagrama de Microservicios
+
+![Diagrama de Microservicios](assets/dcicflix.png)
+
 
 ## Funcionalidades
 
